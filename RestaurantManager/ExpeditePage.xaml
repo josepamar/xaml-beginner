@@ -5,14 +5,19 @@
     xmlns:local="using:RestaurantManager"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:order="using:restaurantManager.Models"
     mc:Ignorable="d">
-
+    <Page.DataContext>
+        <order:dataManager />
+    </Page.DataContext>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.9*"/>
             <RowDefinition Height="0.1*"/>
         </Grid.RowDefinitions>
-        <GridView x:Name="gvExpedite" HorizontalAlignment="Left" Margin="0,45,0,0" VerticalAlignment="Top" Width="640" Height="279" Background="Black"/>
+        <GridView x:Name="gvExpedite" HorizontalAlignment="Left" Margin="0,45,0,0" VerticalAlignment="Top" Width="640" Height="279" Background="Black">
+            <ListView x:Name="itemListView" ItemsSource="{Binding OrderItems}" Width="640" Height="279" />
+        </GridView>
         <Button x:Name="btnClearOrders" Content="Clear All Orders" HorizontalAlignment="Center" Margin="0" Grid.Row="1" VerticalAlignment="Center" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
         <CommandBar x:Name="CommanBarExpedite" Height="40" VerticalAlignment="Top" ClosedDisplayMode="Minimal">
             <AppBarButton x:Name="appBarButtonExpedite" HorizontalAlignment="Left" Label="Home" Margin="0" VerticalAlignment="Top" Width="30" Icon="Home" RenderTransformOrigin="-0.708,0.839" Click="home_click" Height="40"/>
