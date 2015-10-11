@@ -35,9 +35,7 @@ namespace RestaurantManager
 
         private void addOrder(object sender, RoutedEventArgs e)
         {
-            string text = listView.SelectedItem.ToString();
-            dataManager addOrder = new dataManager();
-            addOrder.CurrentlySelectedMenuItems.Add(text);
+            
         }
     }
 }
